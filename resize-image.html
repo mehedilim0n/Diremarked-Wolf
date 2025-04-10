@@ -1,0 +1,295 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Resize Image by Dimension - Diremarked Wolf</title>
+  <meta name="description" content="Resize your images by width and height easily. Free and fast image resizer tool.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: #f5f7fa; color: #222; }nav {
+  background: #00c9a7;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.nav-links a {
+  margin-left: 1rem;
+  font-size: 0.95rem;
+}
+
+.container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+h1 { margin-bottom: 1rem; }
+
+input[type="file"], input[type="number"] {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.dimension-inputs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.dimension-inputs input {
+  flex: 1;
+}
+
+
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: #00c9a7;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    padding: 1rem 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+
+  .nav-links a {
+    margin: 0.5rem 0;
+    text-align: center;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+}
+
+.preview-wrapper {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.preview-wrapper img {
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  margin-bottom: 0.5rem;
+}
+
+button {
+  background: #00c9a7;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+button:hover {
+  background: #009e90;
+}
+
+.info {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+.result-section {
+  display: none;
+  margin-top: 2rem;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: #1a1a2e;
+  color: white;
+}
+
+  </style>
+</head>
+<body>
+  <nav>
+  <a href="index.html" class="logo">Diremarked Wolf</a>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="image-compression.html">Compress</a>
+    <a href="png-to-jpg.html">PNG to JPG</a>
+    <a href="jpg-to-png.html">JPG to PNG</a>
+    <a href="resize-image.html">Resize</a>
+  </div>
+</nav>  
+
+
+<!-- top ads -->
+<div>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3453286881880671"
+     crossorigin="anonymous"></script>
+<!-- 1st time -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3453286881880671"
+     data-ad-slot="8613641122"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+</div>
+
+
+
+
+<div class="container">
+    <h1>Resize Image</h1>
+    <p>Resize your image by specifying the width and height in pixels.</p><div class="preview-wrapper">
+  <img id="preview" src="" alt="" style="display:none;" />
+  <div class="info" id="info"></div>
+</div>
+
+<input type="file" id="upload" accept="image/*">
+
+<div class="dimension-inputs">
+  <input type="number" id="width" placeholder="Width (px)">
+  <input type="number" id="height" placeholder="Height (px)">
+</div>
+
+<button onclick="resizeImage()">Resize Image</button>
+
+<div id="result" class="result-section">
+  <h3>Resized Image:</h3>
+  <img id="resizedImg" src="" alt="Resized preview" style="margin-bottom: 1rem; max-width: 100%; border-radius: 8px;"/>
+  <div id="resizedInfo"></div>
+  <a id="downloadBtn" href="#" download="resized-image.png" style="display:inline-block; margin-top: 1rem; background: #00c9a7; color: #fff; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none;">Download Resized Image</a>
+</div>
+
+  </div>  
+  
+  <div>
+    <!--bottom ads-->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3453286881880671"
+     crossorigin="anonymous"></script>
+<!-- 3rd time -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3453286881880671"
+     data-ad-slot="8593821218"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+    
+    
+    
+  </div>
+  
+  
+  <footer>
+    &copy; 2025 Diremarked Wolf. All Rights Reserved.
+  </footer>  <script>
+    const upload = document.getElementById("upload");
+    const preview = document.getElementById("preview");
+    const widthInput = document.getElementById("width");
+    const heightInput = document.getElementById("height");
+    const info = document.getElementById("info");
+    const resultSection = document.getElementById("result");
+    const resizedImg = document.getElementById("resizedImg");
+    const resizedInfo = document.getElementById("resizedInfo");
+    const downloadBtn = document.getElementById("downloadBtn");
+    let uploadedImage;
+
+    upload.addEventListener("change", () => {
+      const file = upload.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = e => {
+        preview.src = e.target.result;
+        preview.style.display = "block";
+        uploadedImage = new Image();
+        uploadedImage.onload = () => {
+          widthInput.value = uploadedImage.width;
+          heightInput.value = uploadedImage.height;
+
+          const sizeKB = (file.size / 1024).toFixed(2);
+          info.innerHTML = `<strong>Original Size:</strong> ${sizeKB} KB<br>
+            <strong>Original Dimensions:</strong> ${uploadedImage.width} × ${uploadedImage.height} px`;
+        };
+        uploadedImage.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    });
+
+    function resizeImage() {
+      const width = parseInt(widthInput.value);
+      const height = parseInt(heightInput.value);
+
+      if (!uploadedImage || isNaN(width) || isNaN(height) || width <= 0 || height <= 0) {
+        alert("Please upload an image and enter valid width and height.");
+        return;
+      }
+
+      const canvas = document.createElement("canvas");
+      const ctx = canvas.getContext("2d");
+      canvas.width = width;
+      canvas.height = height;
+      ctx.drawImage(uploadedImage, 0, 0, width, height);
+
+      canvas.toBlob(blob => {
+        const resizedURL = URL.createObjectURL(blob);
+        resizedImg.src = resizedURL;
+        downloadBtn.href = resizedURL;
+
+        const sizeKB = (blob.size / 1024).toFixed(2);
+        resizedInfo.innerHTML = `<strong>Resized Size:</strong> ${sizeKB} KB<br>
+          <strong>New Dimensions:</strong> ${width} × ${height} px`;
+
+        resultSection.style.display = "block";
+      }, "image/png");
+    }
+  </script>
+  
+  <script>
+  function toggleMenu() {
+    const nav = document.getElementById("navLinks");
+    nav.classList.toggle("active");
+  }
+</script>
+  
+  </body>
+</html>
